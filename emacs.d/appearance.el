@@ -25,12 +25,14 @@
 (setq initial-scratch-message "")
 
 ;;;; toolbar
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
+(if window-system
+    (progn
+      (tool-bar-mode -1)
+      (menu-bar-mode -1)
+      (toggle-scroll-bar -1)))
 
 ;;;; colors
-(if (window-system)
+(if window-system
     (setq default-frame-alist
 	  (append default-frame-alist
 		  '((foreground-color . "GhostWhite")
