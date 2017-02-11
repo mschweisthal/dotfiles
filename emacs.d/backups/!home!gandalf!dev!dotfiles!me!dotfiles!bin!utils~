@@ -1,0 +1,20 @@
+#!/bin/bash
+
+gcaa() {
+    git add -A && git commit -m "$*"
+}
+
+pullDir() {
+    for dir in $(ls -d */); do
+        cd $dir
+        if [[ -d .git ]]; then
+            echo "Entered directory: $dir"
+            git pull
+            echo
+            cd ..
+        else
+            pullDir `pwd`
+            cd ..
+        fi
+    done
+}

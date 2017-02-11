@@ -1,0 +1,69 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/usr/share/" . "pyshared/")
+ ("/usr/" . "share/")
+ ("/" . "usr/")
+ ("/home/gandalf/.bin/tor-browser_en-US/Browser/TorBrowser/Tor/" . "PluggableTransports/")
+ ("/home/gandalf/.bin/tor-browser_en-US/Browser/TorBrowser/" . "Tor/")
+ ("/home/gandalf/.bin/tor-browser_en-US/Browser/" . "TorBrowser/")
+ ("/home/gandalf/.bin/tor-browser_en-US/" . "Browser/")
+ ("/home/gandalf/.bin/" . "tor-browser_en-US/")
+ ("/home/gandalf/dev/" . "linux/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/gandalf/dev/dotfiles/me/dotfiles/bin/"
+ "/usr/share/pyshared/"
+ "/home/gandalf/.bin/tor-browser_en-US/Browser/TorBrowser/Tor/PluggableTransports/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "utils"
+ "FSM.py"
+ "debianbts.py"
+ "obfs4proxy"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/gandalf/dev/dotfiles/me/dotfiles/bin/" (22684 27697 731954 578000) "../" "utils" "./")
+
+ ("/usr/share/pyshared/" (22520 2173 260594 262000) "roman.py" "ANSI.py" "glib/" "keybinder/" "pyasn1/" "python_debianbts-1.11.egg-info" "lsb_release.py" "roman-2.0.0.egg-info" "pyasn1-0.1.7.egg-info/" "ecdsa/" "ndg_httpsclient-0.3.2.egg-info/" "pygst.py" "gst-0.10/" "../" "ndg/" "gtk-2.0/" "screen.py" "pygst.pth" "pyxdg-0.25.egg-info" "FSM.py" "pygtk.py" "gtk-2.0-pysupport-compat.pth" "pxssh.py" "ecdsa-0.11.egg-info" "ndg_httpsclient-0.3.2-nspkg.pth" "debianbts.py" "pexpect-3.2.egg-info" "cairo/" "fdpexpect.py" "guake/" "pygtk.pth" "gobject/" "xdg/" "pexpect/" "./")
+
+ ("/usr/share/" (22679 51585 223854 969000) "texinfo/" "hyphen/" "alsa/" "kde4/" "fontconfig/" "caja/" "po-debconf/" "javascript/" "firebird2.5-common/" "pygtk/" "gnupg/" "dstat/" "hunspell/" "python-pycparser/" "fonts-droid/" "pixmaps/" "autopsy/" "base-passwd/" "mate-about/" "themes/" "mate-notification-daemon/" "eom/" "consolefonts/" "gstreamer-1.0/" "zoneinfo/" "myspell/" "applications/" "mate-screenshot/" "console-setup/" "adduser/" "snmp/" "gettext/" "nm-applet/" "vlc/" "misc/" "mate-settings-daemon/" "sgml-data/" "ppp/" "aspell/" "initramfs-tools/" "directfb-1.2.10/" "foo2zjs/" "qtchooser/" "mate-menus/" "avahi/" "build-essential/" "i18n/" "fonts/" "zenity/" "nmap/" "omf/" "libmatekbd/" "mate-disk-usage-analyzer/" "mate-power-manager/" "speech-dispatcher/" "systemtap/" "zsh/" "color/" "git-core/" "games/" "debianutils/" "menu/" "libparse-debianchangelog-perl/" "xml/" "intltool-debian/" "mimelnk/" "mate-utils/" "hibernate/" "pnm2ppa/" "dns/" "application-registry/" "hal/" "pulseaudio/" "gnome-online-accounts/" "mythes/" "idl/" "vim/" "texlive/" "python/" "mate-2.0/" "dh-python/" "thumbnailers/" "libgksu/" "w3m/" "pkgconfig/" "easy-rsa/" "man-db/" "mate-session-manager/" "mobile-broadband-provider-info/" "xsessions/" "man/" "mate-applets/" "liblouis/" "libsensors4/" "marco/" "emacs24/" "desktop-directories/" "libvisual-plugins-0.4/" "usb_modeswitch/" "gdm/" "polkit-1/" "galculator/" "tasksel/" "grub/" "pam-configs/" "foomatic/" "ca-certificates/" "gstreamer-0.10/" "irssi/" "m2300w/" "gtk-doc/" "gutenprint/" "webkitgtk-3.0/" "m17n/" "vdr/" "ppd/" "firefox-esr/" "binfmts/" "iptables/" "apt-listchanges/" "mozilla/" "pluma/" "gdb/" "wallpapers/" "rkhunter/" "sysv-rc/" "perl/" "os-prober/" "engrampa/" "X11/" "libnm-gtk/" "gcr-3/" "GeoIP/" "GConf/" "tabset/" "enchant/" "bash-completion/" "mate-control-center/" "libaudio2/" "ispell/" "aptitude/" "acpi-support/" "cdbs/" "dpkg/" "glib-2.0/" "java/" "mime-info/" "poppler/" "locale/" "python3/" "numpy/" "mate-terminal/" "gimp/" "mate-screensaver/" "sgml/" "debhelper/" "dh-autoreconf/" "dictionaries-common/" "gnome/" "tools/" "mime/" "nfs-common/" "ca-certificates-java/" "bsd-mailx/" "base-files/" "gir-1.0/" "dnsmasq-base/" "pam/" "hplip/" "calendar/" "tcltk/" "debconf/" "images/" "libc-bin/" "insserv/" "javazi/" "virtualbox/" "vte/" "gnuchess/" "openvpn/" "consoletrans/" "ImageMagick-6/" "gnome-background-properties/" "lintian/" "lightdm/" "mate-dictionary/" "maven-repo/" "automake-1.14/" "doc/" "file/" "mate/" "texmf/" "orca/" "backgrounds/" "sbt-launcher-packaging/" "desktop-base/" "MateConf/" "python-support/" "firebird/" "gst-python/" "sgml-base/" "mate-media/" "aclocal/" "apport/" "aclocal-1.14/" "libmate-desktop/" "readline/" "rubygems-integration/" "libmateweather/" "pyshared/" "libthai/" "mate-background-properties/" "cups/" "ghostscript/" "sounds/" "common-licenses/" "perl5/" "xgreeters/" "librarian/" "docutils/" "dict/" "atom/" "ssl-cert/" "libgphoto2/" "guake/" "installation-report/" "gtk-engines/" "dbus-1/" "keyrings/" "gnome-control-center/" "gconf/" "terminator/" "groff/" "gitweb/" "nano/" "reportbug/" "help/" "libtool/" "apps/" "foo2qpdl/" "python-apt/" "atril/" "gtksourceview-2.0/" "systemd/" "icons/" "synaptic/" "gst-plugins-base/" "opensc/" "terminfo/" "libreoffice/" "gcc-4.9/" "gvfs/" "p11-kit/" "info/" "mate-panel/" "qt4/" "emacs/" "libexttextcat/" "xml-core/" "mate-dict/" "plymouth/" "liblangtag/" "autoconf/" "discover/" "upstart/" "djvu/" "colord/" "doc-base/" "gnupg2/" "tex-common/" "bug/" "tsk/" "../" "./")
+
+ ("/usr/" (22388 31957 357308 815000) "include/" "src/" "games/" "local/" "../" "share/" "lib/" "bin/" "./" "sbin/")
+
+ ("/home/" (22388 32683 921282 844000) "gandalf/" "../" "./")
+
+ ("/home/gandalf/.bin/tor-browser_en-US/Browser/TorBrowser/Tor/PluggableTransports/" (22665 28440 823977 879000) "terml/" "txsocksx/" "pyptlib/" "fte/" "meek-client" "../" "meek-client-torbrowser" "obfsproxy/" "Crypto/" "ometa/" "zope/" "obfs4proxy" "twisted/" "obfsproxy.bin" "parsley.py" "yaml/" "fteproxy.bin" "argparse.py" "./" "fteproxy/")
+
+ ("/home/gandalf/.bin/tor-browser_en-US/Browser/TorBrowser/Tor/" (22665 28440 807977 880000) "libcrypto.so.1.0.0" "../" "tor" "libgmp.so.10" "libstdc++.so.6" "PluggableTransports/" "libevent-2.0.so.5" "libssl.so.1.0.0" "./")
+
+ ("/home/gandalf/.bin/tor-browser_en-US/Browser/TorBrowser/" (22665 28431 599978 209000) "Docs/" "Data/" "../" "Tor/" "UpdateInfo/" "./")
+
+ ("/home/gandalf/.bin/tor-browser_en-US/Browser/" (22665 29298 879947 208000) "libnssckbi.so" "TorBrowser/" "platform.ini" "updater.ini" "precomplete" "libnspr4.so" ".local/" "firefox" "dependentlibs.list" "fonts/" "start-tor-browser.desktop" "browser/" "libmozsqlite3.so" "libnss3.so" "defaults/" "libnssdbm3.so" "webapprt/" "execdesktop" "libsmime3.so" "libfreebl3.so" "../" "Downloads/" ".config/" "removed-files" ".gnome2/" "liblgpllibs.so" ".gstreamer-0.10/" "run-mozilla.sh" "updater" "libsoftokn3.so" "plugin-container" "start-tor-browser" ".cache/" "update-settings.ini" "libnssutil3.so" "dictionaries/" "application.ini" "libplc4.so" "libxul.so" "libssl3.so" ".gnome2_private/" "icons/" "libplds4.so" "webapprt-stub" "Desktop/" "./" "omni.ja")
+
+ ("/home/gandalf/.bin/tor-browser_en-US/" (22665 29298 879947 208000) "Browser/" "start-tor-browser.desktop" "../" "./")
+
+ ("/home/gandalf/.bin/" (22550 24397 836969 181000) "streisand/" "do-streisand-api" "do/" "../" "tor-browser_en-US/" "./")
+
+ ("/home/gandalf/" (22684 26440 399988 699000) "Public/" ".ssh/" ".gconf/" ".ansible/" "Videos/" ".Xauthority" ".node_repl_history" ".local/" ".dbus/" ".sbt/" "VirtualBox VMs/" ".bashrc" "Pictures/" "Music/" ".profile" "../" ".macromedia/" "Downloads/" ".config/" ".thumbnails/" ".atom/" ".gnome2/" ".viminfo" ".xsession-errors.old" ".pki/" ".dmrc" ".bash_history" "chess/" ".gitconfig" "Documents/" ".xsession-errors" ".icons/" ".cache/" ".java/" ".emacs.d/" ".emacs_backups/" ".themes/" ".bin/" ".lesshst" ".pip/" ".gnome/" ".oracle_jre_usage/" ".irssi/" ".vimrc" ".ICEauthority" ".scala_history" ".gnupg/" ".gnome2_private/" ".bash_logout" ".gimp-2.8/" "Templates/" ".IntelliJIdea2016.3/" ".ivy2/" ".scid/" ".adobe/" ".mozilla/" ".xboardrc" "obfs4-bridges" "Desktop/" "dev/" "./")
+
+ ("/home/gandalf/dev/linux/" (22666 52378 959869 852000) "../" "./")
+
+ ("/home/gandalf/dev/" (22666 52074 83880 750000) ".idea/" "scala/" "linux/" "js/" "../" "install-sbt.sh" "dotfiles/" "sec/" "./")
+
+ ("/home/gandalf/dev/dotfiles/" (22679 63503 859906 758000) "../" "justinforce/" "jessfraz/" "me/" "./")
+
+ ("/home/gandalf/dev/dotfiles/me/" (22677 54726 883917 993000) "../" "dotfiles/" "./")
+
+ ("/home/gandalf/dev/dotfiles/me/dotfiles/" (22679 54700 159770 437000) "README.md" ".git/" "emacs.d.old/" "vimrc" "Xmodmap" "../" "emacs.d/" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
