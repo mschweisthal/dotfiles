@@ -2,6 +2,9 @@
 
 set -e
 
+#apt_install='apt-get install -y -V --show-progress --no-install-recommends -o Debug::pkgProblemResolver=true -o Debug::Acquire::http=true -o Debug::pkgDPkgPM=true'
+apt_install='apt-get install -y --no-install-recommends'
+
 get_env() {
     if [[ -f /etc/os-release ]]; then
    	# freedesktop.org and systemd
@@ -27,7 +30,7 @@ get_env() {
     	VER=$(uname -r)
     fi
 
-    echo "OS:${OS}, VERSION:${VER}"
+    echo "os:${OS}, ver:${VER}"
 }
 
 # Choose a user account to use for this installation
@@ -69,17 +72,23 @@ setup_sources() {
 }
 
 install_packages() {
+
+    echo "[[Update]]"
     apt-get update
+    
+    echo "[[Upgrade]]"
     apt-get upgrade -y
-    apt-get install -y \
-# base
+
+    echo "[[Install]]"
+    install_hardware
+    $apt_install \
         adduser \
         alpine \
         alsa-utils \
         apparmor \
-        automake \
         bash-completion \
         bc \
+	binutils \
         bridge-utils \
         bzip2 \
         cgroupfs-mount \
@@ -94,23 +103,23 @@ install_packages() {
         gnupg \
         gnupg2 \
         gnupg-agent \
-	#google-cloud-sdk \
         grep \
 	gzip \
-	htop \
+	indent \
 	jq \
 	less \
 	libapparmor-dev \
 	libc6-dev \
+	libffi-dev \
 	libltdl-dev \
 	libseccomp-dev \
+	libssl-dev \
 	linux-generic \
 	linux-headers-generic \
 	linux-image-generic \
 	linux-tools-generic* \
 	locales \
 	lsof \
-	make \
 	mount \
 	pinentry-curses \
 	rxvt-unicode-256color \
@@ -127,63 +136,113 @@ install_packages() {
 	xclip \
 	xcompmgr \
 	xz-utils \
-	zip \
+	zip
 # editors
+    $apt_install \
 	emacs25 \
 	emacs25-el \
 	emacs25-dbg \
-	vim \
+	vim
+# dev
+    $apt_install \
+	automake \
+	build-essential \
+	gcc \
+	make \
+	python \
+	python-dev \
+	python-pip \
+	python-paramiko \
+	python-pycurl \
+	python3
+# chess
+    $apt_install \
+	xboard \
+	stockfish \
+        polyglot \
+        fairymax \
+	xfonts-100dpi \
+	xfonts-75dpi
+# comp
+    $apt_install \
+	dstat \
+	htop \
+	strace \
+	sysstat
 # net
+    $apt_install \
     	apt-transport-https \
+	arptables \
     	ca-certificates \
 	conntrack \
     	curl \
 	darkstat \
     	dnsutils \
+	ebtables \
 	hostname \
-	indent \
+	iftop \
 	ipgrab \
 	iptables \
-	mail-utils \
-	nc \
 	net-tools \
+	netcat \
 	network-manager \
 	nmap \
-	ntop \
 	openvpn \
+	stunnel \
 	tcpdump \
-	tripwire \
-    --no-install-recommends
+	traceroute \
+	tripwire
 
     install_extra_net
 
 # window manager
     if [[ "$OS"  == "Ubuntu" ]]; then
-	apt-get install -y \
+	$apt_install \
 	    ubuntu-mate-desktop \
 	    ubuntu-mate-themes \
 	    ubuntu-mate-wallpapers-* \
 	    ubuntu-mate-welcome
-	--no-install-recommends
     fi
 
+    echo "[[Clean]]"
     apt-get autoremove
     apt-get autoclean
     apt-get clean
     rm -rf /var/lib/apt/lists/*
+
+# python stuff
+#    pip install easy_install
+#    pip install markupsafe
+#    pip install dopy==0.3.5
+#    pip install setuptools --upgrade
+#    pip install setuptools_ext
+#    pip install six --upgrade
+#    pip install cffi --upgrade
+#    pip install cryptography --upgrade
+#    pip install ansible
+}
+
+install_hardware() {
+    if [[ "$OS" == "Debian" ]]; then
+	$apt_install \
+            firmware-iwlwifi \
+	    firmware-linux-free \ 
+	    hibernate nvram-wakeup \ 
+    fi
 }
 
 install_extra_net() {
     goto_install_dir
     cd github
-    git clone https://github.com/LionSec/katoolin.git
     if [[ -d "katoolin" ]]; then
 	echo "Katoolin created..."
 	cd katoolin
 	python katoolin.py
     else
-	echo "Katoolin not created. Exiting..."
-	exit 1
+	echo "Downloading Katoolin..."
+	git clone https://github.com/LionSec/katoolin.git
+	cd katoolin
+	python katoolin.py
     fi
 }
 
