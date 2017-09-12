@@ -35,11 +35,16 @@ get_env() {
 
 # Choose a user account to use for this installation
 get_user() {
-    if [ -z "${TARGET_USER-}" ]; then
+    if [[ -z "${TARGET_USER}" ]]; then
        PS3='Which user account should be used? '
        options=$(find /home/* -maxdepth 0 -printf "%f\n" -type d)
        select opt in "${options[@]}"; do
            readonly TARGET_USER=$opt
+	   if [[ -z "${TARGET_USER}" ]]; then
+	       echo "Invalid user"
+	       exit 1
+	   fi
+	   USER_DIR="/home/${TARGET_USER}"
            break
        done
     fi
@@ -53,18 +58,18 @@ check_is_sudo() {
 }
 
 goto_install_dir() {
-    cd "${HOME}" 
+    cd "${USER_DIR}" 
     if [[ ! -d "dev" ]]; then
-	echo "Creating directory ${HOME}/dev"
-   	mkdir ${HOME}/dev
+	echo "Creating directory ${USER_DIR}/dev"
+   	mkdir ${USER_DIR}/dev
     fi
-    cd "${HOME}/dev"
+    cd "${USER_DIR}/dev"
 }
 
 setup_dotfiles() {
     #git clone "https://github.com/mschweisthal/dotfiles.git"
-    ln -snf "${HOME}/dev/dotfiles/vimrc" "${HOME}/.vimrc"
-    ln -snf "${HOME}/dev/dotfiles/emacs.d" "${HOME}/.emacs.d"
+    ln -snf "${USER_DIR}/dev/dotfiles/vimrc" "${USER_DIR}/.vimrc"
+    ln -snf "${USER_DIR}/dev/dotfiles/emacs.d" "${USER_DIR}/.emacs.d"
 }
 
 setup_sources() {
@@ -73,13 +78,8 @@ setup_sources() {
 
 install_packages() {
 
-    echo "[[Update]]"
-    apt-get update
+    apt_update
     
-    echo "[[Upgrade]]"
-    apt-get upgrade -y
-
-    echo "[[Install]]"
     install_hardware
     $apt_install \
         adduser \
@@ -127,7 +127,6 @@ install_packages() {
 	scdaemon \
 	silversearcher-ag \
 	ssh \
-	strace \
 	sudo \
 	tar \
 	tree \
@@ -154,7 +153,11 @@ install_packages() {
 	python-pip \
 	python-paramiko \
 	python-pycurl \
-	python3
+	python3 \
+	python3-dev \
+	ruby \
+	ruby-dev \
+	ri
 # chess
     $apt_install \
 	xboard \
@@ -196,7 +199,7 @@ install_packages() {
     install_extra_net
 
 # window manager
-    if [[ "$OS"  == "Ubuntu" ]]; then
+    if [[ "$OS" == "Ubuntu" ]]; then
 	$apt_install \
 	    ubuntu-mate-desktop \
 	    ubuntu-mate-themes \
@@ -204,12 +207,8 @@ install_packages() {
 	    ubuntu-mate-welcome
     fi
 
-    echo "[[Clean]]"
-    apt-get autoremove
-    apt-get autoclean
-    apt-get clean
-    rm -rf /var/lib/apt/lists/*
-
+    apt_clean
+    
 # python stuff
 #    pip install easy_install
 #    pip install markupsafe
@@ -250,9 +249,15 @@ install_scripts() {
     echo
 }
 
-update_apt() {
+apt_update() {
+    echo "[[UPDATE]]"
     apt-get update -y
+    echo "[[UPGRADE]]"
     apt-get upgrade -y
+}
+
+apt_clean() {
+    echo "[[CLEAN]]"
     apt-get autoremove -y
     apt-get autoclean
     apt-get clean
@@ -290,7 +295,8 @@ main() {
     	install_scripts
     elif [[ $cmd == "update" ]]; then
 	check_is_sudo
-	update_apt
+	apt_update
+	apt_clean
     else
     	usage
     fi
