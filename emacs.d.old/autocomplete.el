@@ -1,5 +1,0 @@
-(add-to-list 'load-path "~/.emacs.d/vendor/autocomplete")
-(require 'auto-complete)
-;(require 'auto-complete-config)
-;(global-auto-complete-mode t)
-;(add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/autocomplete/dict");(ac-config-default) 
