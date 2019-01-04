@@ -29,7 +29,7 @@ get_env() {
     OS=$(uname -s)
     VER=$(uname -r)
   fi
-
+  
   echo "os:${OS}, ver:${VER}"
 }
 
@@ -77,11 +77,11 @@ setup_sources() {
 }
 
 install_packages() {
-
+  
   apt_update
-
+  
   install_hardware
-
+  
   $apt_install \
   adduser \
   alpine \
@@ -135,10 +135,10 @@ install_packages() {
   xcompmgr \
   xz-utils \
   zip
-
+  
   # editors
   install_editors
-
+  
   # dev
   $apt_install \
   automake \
@@ -155,7 +155,7 @@ install_packages() {
   ruby \
   ruby-dev \
   ri
-
+  
   # chess
   $apt_install \
   xboard \
@@ -164,7 +164,7 @@ install_packages() {
   fairymax \
   xfonts-100dpi \
   xfonts-75dpi
-
+  
   # comp
   $apt_install \
   dstat \
@@ -193,7 +193,7 @@ install_packages() {
   stunnel \
   tcpdump \
   traceroute \
-
+  
   # window manager
   if [[ "$OS" == "Ubuntu" ]]; then
     $apt_install \
@@ -202,7 +202,7 @@ install_packages() {
     ubuntu-mate-wallpapers-* \
     ubuntu-mate-welcome
   fi
-
+  
   apt_clean
 }
 
@@ -224,7 +224,7 @@ install_editors() {
   
   goto_install_dir
   cd github
-
+  
   if [[ -d "emacs.d" ]]; then
     echo "Katoolin created..."
     cd katoolin
@@ -241,7 +241,7 @@ install_scripts() {
   cp xinitrc "${USER_DIR}"/.xinitrc
   cp Xmodmap "${USER_DIR}"/.Xmodmap
   cp Xresources "${USER_DIR}"/.Xresources
-
+  
 }
 
 apt_update() {
@@ -269,26 +269,26 @@ usage() {
 
 main() {
   local cmd=$1
-
+  
   if [[ -z "$cmd" ]]; then
     usage
     exit 1
   fi
-
+  
   get_env
-
+  
   if [[ $cmd == "packages" ]]; then
     check_is_sudo
     get_user
     setup_sources
     install_packages
-  elif [[ $cmd == "dotfiles" ]]; then
+    elif [[ $cmd == "dotfiles" ]]; then
     get_user
     setup_dotfiles
-  elif [[ $cmd == "scripts" ]]; then
+    elif [[ $cmd == "scripts" ]]; then
     get_user
     install_scripts
-  elif [[ $cmd == "update" ]]; then
+    elif [[ $cmd == "update" ]]; then
     check_is_sudo
     apt_update
     apt_clean

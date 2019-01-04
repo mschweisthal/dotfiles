@@ -1,4 +1,4 @@
 dotfiles
 ========
 
-some configuration files
+my configuration files
