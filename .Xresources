@@ -18,9 +18,13 @@
 #define base0E #ba8baf
 #define base0F #a16946
 
-*.foreground:   base05
-*.background:   base00
-*.cursorColor:  base05
+!*.foreground:   base05
+!*.background:   base00
+!*.cursorColor:  base05
+
+*background: #0f0f0f
+*foreground: #c8c8c8
+
 
 *.color0:       base00
 *.color1:       base08
@@ -48,3 +52,19 @@
 *.color19:      base02
 *.color20:      base04
 *.color21:      base06
+
+URxvt*font: xft:DejaVu Sans Mono:size=11
+URxvt*fading: 30
+
+! Enable the ability to use regular copy-paste
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.perl-ext-common: default,clipboard
+
+! do not scroll with output
+URxvt*scrollTtyOutput:      false
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer:     true
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress:    true
+
