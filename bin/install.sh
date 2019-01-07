@@ -67,9 +67,9 @@ goto_install_dir() {
 }
 
 setup_dotfiles() {
-  #git clone "https://github.com/mschweisthal/dotfiles.git"
-  ln -snf "${USER_DIR}/dev/dotfiles/vimrc" "${USER_DIR}/.vimrc"
-  ln -snf "${USER_DIR}/dev/dotfiles/emacs.d" "${USER_DIR}/.emacs.d"
+  git clone "https://github.com/mschweisthal/dotfiles.git"
+  cd dotfiles
+  make all
 }
 
 setup_sources() {
@@ -171,6 +171,7 @@ install_packages() {
   htop \
   strace \
   sysstat
+
   # net
   $apt_install \
   apt-transport-https \
@@ -211,7 +212,7 @@ install_hardware() {
     $apt_install \
     firmware-iwlwifi \
     firmware-linux-free \
-    hibernate nvram-wakeup \
+    hibernate nvram-wakeup
   fi
 }
 
@@ -225,23 +226,10 @@ install_editors() {
   goto_install_dir
   cd github
   
-  if [[ -d "emacs.d" ]]; then
-    echo "Katoolin created..."
-    cd katoolin
-    python katoolin.py
-  else
-    echo "Downloading Katoolin..."
-    git clone https://github.com/mschweisthal/emacs.d.git
-    cd emacs.d
-    python katoolin.py
+  if [[ ! -d "emacs.d" ]]; then
+    echo "Downloading emacs configuration..."
+    git clone https://github.com/mschweisthal/emacs.d.git .emacs.d
   fi
-}
-
-install_scripts() {
-  cp xinitrc "${USER_DIR}"/.xinitrc
-  cp Xmodmap "${USER_DIR}"/.Xmodmap
-  cp Xresources "${USER_DIR}"/.Xresources
-  
 }
 
 apt_update() {
@@ -261,9 +249,8 @@ apt_clean() {
 
 usage() {
   echo "Usage:"
-  echo "  packages  - setup sources & install packages"
+  echo "  packages  - install packages"
   echo "  dotfiles  - setup dotfiles"
-  echo "  scripts   - install scripts"
   echo "  update    - update apt"
 }
 
@@ -282,13 +269,10 @@ main() {
     get_user
     setup_sources
     install_packages
-    elif [[ $cmd == "dotfiles" ]]; then
+  elif [[ $cmd == "dotfiles" ]]; then
     get_user
     setup_dotfiles
-    elif [[ $cmd == "scripts" ]]; then
-    get_user
-    install_scripts
-    elif [[ $cmd == "update" ]]; then
+  elif [[ $cmd == "update" ]]; then
     check_is_sudo
     apt_update
     apt_clean
