@@ -53,8 +53,17 @@
 *.color20:      base04
 *.color21:      base06
 
-URxvt*font: xft:DejaVu Sans Mono:size=11
+URxvt*font: xft:DejaVu Sans Mono:size=11:antialias=false
 URxvt*fading: 30
+
+! true transparency
+URxvt.depth: 32
+URxvt.background: [95]#000000
+! native transparency
+!URxvt*inheritPixmap: true
+!URxvt*transparent: true
+! URxvt*shading: 0 to 99 darkens, 101 to 200 lightens
+!URxvt*shading: 110
 
 ! Enable the ability to use regular copy-paste
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
