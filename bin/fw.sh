@@ -1,17 +1,19 @@
 #!/bin/bash
 
 
-
 clear_ipv4() {
-  iptables -F
-  iptables -X
-  
+
   iptables -P INPUT DROP
   iptables -P OUTPUT DROP
   iptables -P FORWARD DROP
   
   iptables -A INPUT -i lo -j ACCEPT
   iptables -A OUTPUT -o lo -j ACCEPT
+
+  iptables -t nat -F
+  iptables -t mangle -F
+  iptables -F
+  iptables -X
 }
 
 setup_ipv4() {
@@ -27,8 +29,6 @@ setup_ipv4() {
 }
 
 clear_ipv6() {
-  ip6tables -F
-  ip6tables -X
   
   ip6tables -P INPUT DROP
   ip6tables -P INPUT DROP
@@ -36,6 +36,11 @@ clear_ipv6() {
   
   ip6tables -A INPUT -i lo -j ACCEPT
   ip6tables -A OUTPUT -o lo -j ACCEPT
+
+  ip6tables -t nat -F
+  ip6tables -t mangle -F
+  ip6tables -F
+  ip6tables -X
 }
 
 setup_ipv6() {
@@ -44,12 +49,14 @@ setup_ipv6() {
 }
 
 clear_arp() {
-  arptables -F
-  arptables -X
   
   arptables -P INPUT DROP
   arptables -P OUTPUT DROP
   arptables -P FORWARD DROP
+  
+  arptables -t mangle -F
+  arptables -F
+  arptables -X
 }
 
 setup_arp() {
@@ -60,7 +67,13 @@ setup_arp() {
 }
 
 usage() {
-  echo "wrong"
+  echo "Usage:"
+  echo "  ipv4-off - disable ipv4 traffic"
+  echo "  ipv4-on  - enable ipv4 traffic"
+  echo "  ipv4-off - disable ipv6 traffic"
+  echo "  ipv4-on  - enable ipv6 traffic"
+  echo "  arp-on   - enable arp for specific MAC only"
+  echo "  arp-off  - enable all arp"
 }
 
 main() {
@@ -75,15 +88,15 @@ main() {
   
   if [[ $cmd == "ipv4-on" ]]; then
     setup_ipv4
-    elif [[ $cmd == "ipv4-off" ]]; then
+  elif [[ $cmd == "ipv4-off" ]]; then
     clear_ipv4
-    elif [[ $cmd == "ipv6-on" ]]; then
+  elif [[ $cmd == "ipv6-on" ]]; then
     setup_ipv6
-    elif [[ $cmd == "ipv6-off" ]]; then
+  elif [[ $cmd == "ipv6-off" ]]; then
     clear_ipv6
-    elif [[ $cmd == "arp-on" ]]; then
+  elif [[ $cmd == "arp-on" ]]; then
     setup_arp
-    elif [[ $cmd == "arp-off" ]]; then
+  elif [[ $cmd == "arp-off" ]]; then
     clear_arp
   else
     echo "Enabling all..."
