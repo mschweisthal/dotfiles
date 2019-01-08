@@ -1,9 +1,3 @@
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-  colorflag="--color"
-else # OS X `ls`
-  colorflag="-G"
-fi
-
 # Programs
 alias ff='~/bin/firefox-65.0b2/firefox &'
 alias ffkill="ps ux | grep firefox | grep childID | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
@@ -19,6 +13,11 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias -- -="cd -"
 
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+  colorflag="--color"
+else # OS X `ls`
+  colorflag="-G"
+fi
 # List all files colorized in long format
 alias l="ls -lhF ${colorflag}"
 # List all files colorized in long format, including dot files

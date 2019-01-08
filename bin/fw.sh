@@ -63,7 +63,7 @@ setup_arp() {
   clear_arp
   
   arptables -A INPUT --source-mac :MAC: -j ACCEPT
-  arptables -A OUTPUT --source-=mac :MAC: -j ACCEPT
+  arptables -A OUTPUT --source-mac :MAC: -j ACCEPT
 }
 
 usage() {
