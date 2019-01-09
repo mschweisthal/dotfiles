@@ -53,12 +53,12 @@
 *.color20:      base04
 *.color21:      base06
 
-URxvt*font: xft:DejaVu Sans Mono:size=11:antialias=false
+URxvt*font: xft:DejaVu Sans Mono:size=9:antialias=true
 URxvt*fading: 30
 
 ! true transparency
 URxvt.depth: 32
-URxvt.background: [95]#000000
+URxvt.background: [90]#000000
 ! native transparency
 !URxvt*inheritPixmap: true
 !URxvt*transparent: true
