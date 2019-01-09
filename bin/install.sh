@@ -136,9 +136,6 @@ install_packages() {
   xz-utils \
   zip
   
-  # editors
-  install_editors
-  
   # dev
   $apt_install \
   automake \
@@ -156,6 +153,9 @@ install_packages() {
   ruby-dev \
   ri
   
+  # editors
+  install_editors
+
   # chess
   $apt_install \
   xboard \
@@ -225,11 +225,14 @@ install_editors() {
   
   goto_install_dir
   cd github
-  
+
   if [[ ! -d "emacs.d" ]]; then
     echo "Downloading emacs configuration..."
     git clone https://github.com/mschweisthal/emacs.d.git .emacs.d
   fi
+  python -m pip install --user virtualenv setuptools configparser
+  python -m pip install --user rope jedi wheel importmagic
+  python -m pip install --user autopep8 yapf flake8
 }
 
 apt_update() {
