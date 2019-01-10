@@ -53,7 +53,7 @@
 *.color20:      base04
 *.color21:      base06
 
-URxvt*font: xft:DejaVu Sans Mono:size=9:antialias=true
+URxvt*font: xft:DejaVu Sans Mono:size=11:antialias=true
 URxvt*fading: 30
 
 ! true transparency
