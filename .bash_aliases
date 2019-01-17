@@ -22,6 +22,8 @@ fi
 alias l="ls -lhF ${colorflag}"
 # List all files colorized in long format, including dot files
 alias la="ls -lahF ${colorflag}"
+# List all files colorized in long format, including dot files, most recently written last
+alias ltr="ls -ltrahF ${colorflag}"
 # List only directories
 alias lsd="ls -lhF ${colorflag} | grep --color=never '^d'"
 # Always use color output for `ls`
