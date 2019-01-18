@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
 #apt_install='apt-get install -y -V --show-progress --no-install-recommends -o Debug::pkgProblemResolver=true -o Debug::Acquire::http=true -o Debug::pkgDPkgPM=true'
 apt_install='apt-get install -y --no-install-recommends'
@@ -33,22 +33,22 @@ get_env() {
   echo "os:${OS}, ver:${VER}"
 }
 
-# Choose a user account to use for this installation
+# Choose a user account and set home dir for install
 get_user() {
   if [[ -z "${TARGET_USER}" ]]; then
-    PS3='Which user account should be used? '
-    options=$(find /home/* -maxdepth 0 -printf "%f\n" -type d)
+    mapfile -t options < <(find /home/* -maxdepth 0 -printf "%f\\n" -type d)
     select opt in "${options[@]}"; do
       readonly TARGET_USER=$opt
-      if [[ -z "${TARGET_USER}" ]]; then
-        echo "Invalid user"
-        exit 1
-      fi
       USER_DIR="/home/${TARGET_USER}"
       break
     done
   fi
+  if [[ -z "${TARGET_USER}" ]]; then
+    echo "Invalid user"
+    exit 1
+  fi
 }
+
 
 check_is_sudo() {
   if [ "$EUID" -ne 0 ]; then
@@ -153,9 +153,6 @@ install_packages() {
   ruby-dev \
   ri
   
-  # editors
-  install_editors
-
   # chess
   $apt_install \
   xboard \
@@ -175,7 +172,7 @@ install_packages() {
   sar \
   sysstat \
   vmstat
-
+  
   # net
   $apt_install \
   apt-transport-https \
@@ -229,7 +226,7 @@ install_editors() {
   
   goto_install_dir
   cd github
-
+  
   if [[ ! -d "emacs.d" ]]; then
     echo "Downloading emacs configuration..."
     git clone https://github.com/mschweisthal/emacs.d.git .emacs.d
@@ -258,6 +255,7 @@ usage() {
   echo "Usage:"
   echo "  packages  - install packages"
   echo "  dotfiles  - setup dotfiles"
+  echo "  editors   - setup editors"
   echo "  update    - update apt"
 }
 
@@ -279,6 +277,9 @@ main() {
   elif [[ $cmd == "dotfiles" ]]; then
     get_user
     setup_dotfiles
+  elif [[ $cmd == "editors" ]]; then
+    get_user
+    install_editors
   elif [[ $cmd == "update" ]]; then
     check_is_sudo
     apt_update
