@@ -169,8 +169,12 @@ install_packages() {
   $apt_install \
   dstat \
   htop \
+  iostat \
+  iotop \
   strace \
-  sysstat
+  sar \
+  sysstat \
+  vmstat
 
   # net
   $apt_install \
