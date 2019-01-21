@@ -189,6 +189,7 @@ install_packages() {
   iptables \
   net-tools \
   netcat \
+  nethogs \
   network-manager \
   nmap \
   openvpn \

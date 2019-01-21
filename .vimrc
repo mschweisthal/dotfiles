@@ -1,12 +1,12 @@
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
 filetype plugin indent on    " required
 
 "
 " Settings
 "
+set modeline
 set noerrorbells                " No beeps
 set number                      " Show line numbers
 set backspace=indent,eol,start  " Makes backspace key more powerful.
@@ -85,13 +85,9 @@ set ttimeoutlen=10
 set complete=.,w,b,u,t
 set completeopt=longest,menuone
 
-if &history < 1000
-  set history=50
-endif
+set history=1000
 
-if &tabpagemax < 50
-  set tabpagemax=50
-endif
+set tabpagemax=50
 
 if !empty(&viminfo)
   set viminfo^=!
@@ -360,7 +356,7 @@ autocmd FileType gitcommit setlocal spell
 " Wildmenu completion {{{
 set wildmenu
 " set wildmode=list:longest
-set wildmode=list:full
+set wildmode=list:longest,full
 
 set wildignore+=.hg,.git,.svn                    " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
