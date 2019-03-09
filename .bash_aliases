@@ -1,5 +1,5 @@
 # Programs
-alias ff='~/bin/firefox-65.0b2/firefox &'
+alias ff='~/bin/firefox/firefox &'
 alias ffkill="ps ux | grep firefox | grep childID | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 alias tb='cd ~/bin/tor-browser_en-US/; ./start-tor-browser.desktop; cd ~'

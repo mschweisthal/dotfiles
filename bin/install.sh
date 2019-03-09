@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+TARGET_USER='gandalf'
+
 #apt_install='apt-get install -y -V --show-progress --no-install-recommends -o Debug::pkgProblemResolver=true -o Debug::Acquire::http=true -o Debug::pkgDPkgPM=true'
 apt_install='apt-get install -y --no-install-recommends'
 
@@ -166,12 +168,12 @@ install_packages() {
   $apt_install \
   dstat \
   htop \
-  iostat \
-  iotop \
-  strace \
-  sar \
-  sysstat \
-  vmstat
+#  iostat \
+#  iotop \
+#  strace \
+#  sar \
+#  sysstat \
+#  vmstat
   
   # net
   $apt_install \
@@ -180,14 +182,14 @@ install_packages() {
   ca-certificates \
   conntrack \
   curl \
-  darkstat \
-  dnsutils \
-  ebtables \
-  hostname \
-  iftop \
-  ipgrab \
+#  darkstat \
+#  dnsutils \
+#  ebtables \
+#  hostname \
+ # iftop \
+ # ipgrab \
   iptables \
-  net-tools \
+ # net-tools \
   netcat \
   nethogs \
   network-manager \

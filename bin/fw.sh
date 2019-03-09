@@ -3,9 +3,9 @@
 
 clear_ipv4() {
 
-  iptables -P INPUT DROP
-  iptables -P OUTPUT DROP
-  iptables -P FORWARD DROP
+  iptables -P INPUT ACCEPT
+  iptables -P OUTPUT ACCEPT
+  iptables -P FORWARD ACCEPT
   
   iptables -A INPUT -i lo -j ACCEPT
   iptables -A OUTPUT -o lo -j ACCEPT
@@ -18,6 +18,9 @@ clear_ipv4() {
 
 setup_ipv4() {
   clear_ipv4
+  iptables -P INPUT DROP
+  iptables -P OUTPUT DROP
+  iptables -P FORWARD DROP
   
   iptables -A INPUT -m pkttype --pkt-type multicast -j DROP
   iptables -A OUTPUT -m pkttype --pkt-type multicast -j DROP
@@ -30,9 +33,9 @@ setup_ipv4() {
 
 clear_ipv6() {
   
-  ip6tables -P INPUT DROP
-  ip6tables -P INPUT DROP
-  ip6tables -P FORWARD DROP
+  ip6tables -P INPUT ACCEPT
+  ip6tables -P INPUT ACCEPT
+  ip6tables -P FORWARD ACCEPT
   
   ip6tables -A INPUT -i lo -j ACCEPT
   ip6tables -A OUTPUT -o lo -j ACCEPT
@@ -44,15 +47,19 @@ clear_ipv6() {
 }
 
 setup_ipv6() {
+  clear_ipv6
+  ip6tables -P INPUT DROP
+  ip6tables -P OUTPUT DROP
+  ip6tables -P FORWARD DROP
+
   ip6tables -A INPUT -m state --state ESTABLISHED -j ACCEPT
   ip6tables -A OUTPUT -m state --state NEW,ESTABLISHED -j ACCEPT
 }
 
 clear_arp() {
-  
-  arptables -P INPUT DROP
-  arptables -P OUTPUT DROP
-  arptables -P FORWARD DROP
+  arptables -P INPUT ACCEPT
+  arptables -P OUTPUT ACCEPT
+  arptables -P FORWARD ACCEPT
   
   arptables -t mangle -F
   arptables -F
@@ -61,7 +68,10 @@ clear_arp() {
 
 setup_arp() {
   clear_arp
-  
+  arptables -P INPUT DROP
+  arptables -P OUTPUT DROP
+  arptables -P FORWARD DROP
+
   arptables -A INPUT --source-mac :MAC: -j ACCEPT
   arptables -A OUTPUT --source-mac :MAC: -j ACCEPT
 }
