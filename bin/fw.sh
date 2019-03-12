@@ -86,6 +86,9 @@ usage() {
   echo "  ipv4-on  - enable ipv6 traffic"
   echo "  arp-on   - enable arp for specific MAC only"
   echo "  arp-off  - enable all arp"
+  echo
+  echo "  on       - enable all"
+  echo "  off      - disable all"
 }
 
 main() {
@@ -112,11 +115,15 @@ main() {
     setup_arp
   elif [[ $cmd == "arp-off" ]]; then
     clear_arp
-  elif [[ $cmd == "all" ]]; then
+  elif [[ $cmd == "on" ]]; then
     echo "Enabling all..."
     setup_arp
     setup_ipv4
     setup_ipv6
+  elif [[ "$cmd" == "off" ]]; then
+    clear_ipv4
+	clear_ipv6
+	clear_arp
   fi
   
   echo "Done."
