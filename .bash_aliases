@@ -94,3 +94,4 @@ alias mv='mv -i'
 # untar
 alias untar='tar xvf'
 
+alias weather = 'curl wttr.in/"west palm beach"'
