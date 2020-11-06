@@ -1,2 +1,3 @@
 [[ -f ~/.Xresources ]] && xrdb -merge /.Xresources
-xmodmap ~/.Xmodmap
+#xmodmap ~/.Xmodmap
+/usr/bin/setxkbmap -option "ctrl:swapcaps"
