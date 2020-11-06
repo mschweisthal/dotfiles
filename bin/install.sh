@@ -222,9 +222,8 @@ install_hardware() {
 
 install_editors() {
   $apt_install \
-  emacs25 \
-  emacs25-el \
-  emacs25-dbg \
+  emacs \
+  emacs-el \
   vim
   
   goto_install_dir

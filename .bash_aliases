@@ -97,3 +97,5 @@ alias untar='tar xvf'
 alias weather='curl wttr.in/"west palm beach"'
 alias usbon='sudo modprobe usbhid'
 alias usboff='sudo modprobe -r hid_logitech_dj usbhid'
+
+alias testls='ls'
