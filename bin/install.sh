@@ -145,15 +145,15 @@ install_packages() {
   gcc \
   make \
   python \
-  python-dev \
-  python-pip \
-  python-paramiko \
-  python-pycurl \
+#  python-dev \
+#  python-pip \
+#  python-paramiko \
+#  python-pycurl \
   python3 \
-  python3-dev \
-  ruby \
-  ruby-dev \
-  ri
+#  python3-dev \
+#  ruby \
+#  ruby-dev \
+#  ri
   
   # chess
   $apt_install \
@@ -189,7 +189,6 @@ install_packages() {
  # iftop \
  # ipgrab \
   iptables \
- # net-tools \
   netcat \
   nethogs \
   network-manager \
@@ -198,6 +197,7 @@ install_packages() {
   stunnel \
   tcpdump \
   traceroute \
+  wget \
   
   # window manager
   if [[ "$OS" == "Ubuntu" ]]; then
@@ -209,6 +209,8 @@ install_packages() {
   fi
   
   apt_clean
+
+  sudo apt install net-tools
 }
 
 install_hardware() {
