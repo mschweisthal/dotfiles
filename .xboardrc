@@ -5,7 +5,7 @@
 ; but if you add other options, the next Save Settings will not save them.
 ; Use a shortcut, an @indirection file, or a .bat file instead.
 ;
--saveDate 1548003101
+-saveDate 1604085483
 -whitePieceColor #FFFFCC
 -blackPieceColor #202020
 -lightSquareColor #C8C365
@@ -134,8 +134,8 @@ Open Chat Box (name);$chat;
 "kc" -icshost alanimus.com -icshelper timeseal
 }
 -recentEngines 4
--recentEngineList {stockfish_10_x64
-stockfish
+-recentEngineList {stockfish
+stockfish_10_x64
 fairymax
 }
 -firstChessProgramNames {fairymax
@@ -240,40 +240,40 @@ shamax
 -timeOddsMode 0
 -keepLineBreaksICS false
 -winWidth 525
--winHeight 620
+-winHeight 605
 -x 203
--y 140
+-y 208
 -icsUp false
 -icsX 2147483445
--icsY 2147483508
+-icsY 2147483440
 -icsW -2147483648
 -icsH -2147483648
 -commentX 572
--commentY 340
+-commentY 272
 -commentW 254
 -commentH 90
 -tagsX -195
--tagsY 451
+-tagsY 383
 -tagsW 288
 -tagsH 236
 -gameListX 724
--gameListY 391
+-gameListY 323
 -gameListW 535
 -gameListH 300
 -slaveX 2147483445
--slaveY 2147483508
+-slaveY 2147483440
 -moveHistoryUp true
--moveHistoryX 525
--moveHistoryY 138
+-moveHistoryX 527
+-moveHistoryY 506
 -moveHistoryW 636
 -moveHistoryH 168
 -evalGraphUp true
 -evalGraphX 525
--evalGraphY -28
+-evalGraphY 0
 -evalGraphW 635
 -evalGraphH 159
 -engineOutputUp true
--engineOutputX 525
--engineOutputY 337
+-engineOutputX 527
+-engineOutputY 184
 -engineOutputW 636
 -engineOutputH 296
