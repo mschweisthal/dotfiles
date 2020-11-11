@@ -62,7 +62,7 @@ setup_ipv6() {
 clear_arp() {
   arptables -P INPUT ACCEPT
   arptables -P OUTPUT ACCEPT
-  arptables -P FORWARD ACCEPT
+#  arptables -P FORWARD ACCEPT
   
   arptables -t mangle -F
   arptables -F
@@ -72,7 +72,7 @@ clear_arp() {
 setup_arp() {
   arptables -P INPUT DROP
   arptables -P OUTPUT DROP
-  arptables -P FORWARD DROP
+#  arptables -P FORWARD DROP
 
   arptables -A INPUT --source-mac 70:4f:b8:7e:de:11 -j ACCEPT
   arptables -A OUTPUT --destination-mac 70:4f:b8:7e:de:11 -j ACCEPT
