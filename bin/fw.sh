@@ -78,6 +78,19 @@ setup_arp() {
   arptables -A OUTPUT --destination-mac 70:4f:b8:7e:de:11 -j ACCEPT
 }
 
+drop() {
+  iptables -P INPUT DROP
+  iptables -P OUTPUT DROP
+  iptables -P FORWARD DROP
+
+  ip6tables -P INPUT DROP
+  ip6tables -P OUTPUT DROP
+  ip6tables -P FORWARD DROP
+  
+  arptables -P INPUT DROP
+  arptables -P OUTPUT DROP
+}
+
 usage() {
   echo "Usage:"
   echo "  ipv4-off - disable ipv4 traffic"
@@ -88,7 +101,8 @@ usage() {
   echo "  arp-off  - enable all arp"
   echo
   echo "  on       - enable all"
-  echo "  off      - disable all"
+  echo "  default  - default all"
+  echo "  drop     - drop all"
 }
 
 main() {
@@ -117,13 +131,23 @@ main() {
     clear_arp
   elif [[ $cmd == "on" ]]; then
     echo "Enabling all..."
+    clear_ipv4
+    clear_ipv6
+    clear_arp
     setup_arp
     setup_ipv4
     setup_ipv6
-  elif [[ "$cmd" == "off" ]]; then
+  elif [[ "$cmd" == "default" ]]; then
+    echo "Setting to default..."
     clear_ipv4
-	clear_ipv6
-	clear_arp
+    clear_ipv6
+    clear_arp
+  elif [[ "$cmd" == "drop" ]]; then
+    echo "Dropping all..."
+    clear_ipv4
+    clear_ipv6
+    clear_arp
+    drop
   fi
   
   echo "Done."

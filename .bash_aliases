@@ -81,12 +81,13 @@ alias fastping='ping -c 100 -s.2'
 # IPTables
 alias iptlist='sudo /sbin/iptables -nvL --line-numbers'
 alias iptlistin='sudo /sbin/iptables -nv -L INPUT --line-numbers'
-alias iptlistout='sudo /sbin/iptables -nv L OUTPUT --line-numbers'
+alias iptlistout='sudo /sbin/iptables -nv -L OUTPUT --line-numbers'
 alias iptlistfw='sudo /sbin/iptables -nv -L FORWARD --line-numbers'
 #IP6Tables
 alias ip6list='sudo /sbin/ip6tables -nvL --line-numbers'
 #ArpTables
 alias aptlist='sudo /sbin/arptables -nvL --line-numbers'
+alias fwlist='iptlist && ip6list &&  aptlist'
 
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
