@@ -106,15 +106,18 @@ install_packages() {
   gnupg-agent \
   grep \
   gzip \
+  ibus \
   indent \
   jq \
   less \
   libapparmor-dev \
   libc6-dev \
   libffi-dev \
+  libgl1-mesa-glx \
   libltdl-dev \
   libseccomp-dev \
   libssl-dev \
+  libxcb-xtest0 \
   linux-generic \
   linux-headers-generic \
   linux-image-generic \
@@ -166,8 +169,11 @@ install_packages() {
   
   # comp
   $apt_install \
+  acpi \
   dstat \
   htop \
+  lm-sensors \
+  neofetch \
 #  iostat \
 #  iotop \
 #  strace \
@@ -189,11 +195,15 @@ install_packages() {
  # iftop \
  # ipgrab \
   iptables \
+  net-tools \
   netcat \
   nethogs \
   network-manager \
+  ngrep \
   nmap \
   openvpn \
+  openvpn-systemd-resolved \
+  resolvconf \
   stunnel \
   tcpdump \
   traceroute \
