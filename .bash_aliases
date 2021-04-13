@@ -3,8 +3,8 @@ alias ff='~/bin/firefox/firefox &'
 alias ffkill="ps ux | grep firefox | grep childID | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 alias tb='cd ~/bin/tor-browser_en-US/; ./start-tor-browser.desktop; cd ~'
-alias chess8='xboard -size medium -fUCI -fcp stockfish -sUCI -scp stockfish'
-alias chess10='xboard -size medium -fUCI -fcp /usr/games/stockfish_10_x64 -sUCI -scp /usr/games/stockfish_10_x64'
+alias chess8='xboard -size Big -fUCI -fcp stockfish -sUCI -scp stockfish'
+alias chess10='xboard -size Big -fUCI -fcp /usr/games/stockfish_10_x64 -sUCI -scp /usr/games/stockfish_10_x64'
 alias chess-fics='chess8 -ics -icshost freechess.org'
 
 # Easier navigation
