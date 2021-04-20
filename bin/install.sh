@@ -170,6 +170,7 @@ install_packages() {
   # comp
   $apt_install \
   acpi \
+  acpi-call-dkms
   dstat \
   htop \
   lm-sensors \
@@ -180,6 +181,8 @@ install_packages() {
 #  sar \
 #  sysstat \
 #  vmstat
+  tlp \
+  tp-smapi-dkms \
   
   # net
   $apt_install \
