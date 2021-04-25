@@ -17,7 +17,8 @@ etc: ## Installs the etc directory files.
 	done
 	systemctl --user daemon-reload || true
 	sudo systemctl daemon-reload
-
+	xrdb -merge $(HOME)/.Xdefaults || true
+	xrdb -merge $(HOME)/.Xresources || true
 
 .PHONY: dotfiles
 dotfiles: ## Installs the dotfiles.

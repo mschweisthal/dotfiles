@@ -63,8 +63,8 @@ alias diff='colordiff'
 alias cwd='pwd | tr -d "\r\n" | xclip -selection clipboard'
 
 # interactive
-alias cp='cp -i'
-alias mv='mv -i'
+alias cp='cp -iv'
+alias mv='mv -iv'
 alias ln='ln -i'
 
 alias rm='rm -I --preserve-root'
