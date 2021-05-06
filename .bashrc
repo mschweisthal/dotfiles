@@ -15,9 +15,10 @@ shopt -s histappend
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# autocd so I don't have to type cd all the time
+# autocd so I don't have to type 'cd' all the time
 shopt -s autocd
 
+# Autocorrect typos in path names when using 'cd'
 shopt -s cdspell
 
 # If set, the pattern "**" used in a pathname expansion context will
