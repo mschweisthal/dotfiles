@@ -8,16 +8,8 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
 # append to the history file, don't overwrite it
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=50000000
-HISTFILESIZE=50000000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -26,7 +18,6 @@ shopt -s checkwinsize
 # autocd so I don't have to type cd all the time
 shopt -s autocd
 
-# Autocorrect typos in path names when using 'cd'
 shopt -s cdspell
 
 # If set, the pattern "**" used in a pathname expansion context will
@@ -109,7 +100,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Load files...
+# Load .bashrc and other files...
 for file in ~/.{bash_aliases,functions,path,exports}; do
   if [[ -r "$file" ]] && [[ -f "$file" ]]; then
     source "$file"

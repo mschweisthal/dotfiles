@@ -8,6 +8,12 @@ export SHELL="$shell";
 export EDITOR=/usr/bin/emacs;
 export TERMINAL="urxvt";
 
+export HISTSIZE=50000000;
+export HISTFILESIZE=$HISTSIZE;
+export HISTCONTROL=ignoredups;
+# Make some commands not show up in history
+export HISTIGNORE=" *:ls:cd:cd -:pwd:exit:date:* --help:* -h";
+
 # Prefer US English and use UTF-8
 export LANG="en_US.UTF-8";
 export LC_ALL="en_US.UTF-8";
