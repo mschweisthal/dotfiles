@@ -88,7 +88,7 @@ alias iptlistfw='sudo /sbin/iptables -nv -L FORWARD --line-numbers'
 alias ip6list='sudo /sbin/ip6tables -nvL --line-numbers'
 #ArpTables
 alias aptlist='sudo /sbin/arptables -nvL --line-numbers'
-alias fwlist='iptlist && ip6list &&  aptlist'
+alias fwlist='iptlist && echo '==========' && ip6list && echo '===========' && aptlist'
 
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
