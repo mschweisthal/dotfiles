@@ -66,6 +66,20 @@ targz() {
 	echo "${tmpFile}.gz created successfully."
 }
 
+archive() {
+    #tar -cvfz - "$1" | gpg -c > "$tmpFile"
+    local tmpFile="${1%/}.tar.gz"
+    targz "$1"
+    echo "Encrypting .tar.gz using: gpg $tmpFile"
+    gpg -c "$tmpFile"
+    rm "$tmpFile"
+    echo "Done."
+}
+
+unarchive() {
+    gpg -d "$1" | tar -xvzf -
+}
+
 # Determine size of a file or total size of a directory
 fs() {
 	if du -b /dev/null > /dev/null 2>&1; then
