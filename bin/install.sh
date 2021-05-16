@@ -95,6 +95,7 @@ install_packages() {
   bridge-utils \
   bzip2 \
   cgroupfs-mount \
+  cmatrix \
   coreutils \
   dirmngr \
   file \
@@ -106,6 +107,7 @@ install_packages() {
   gnupg-agent \
   grep \
   gzip \
+  hollywood \
   ibus \
   indent \
   jq \
