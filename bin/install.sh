@@ -127,6 +127,7 @@ install_packages() {
   locales \
   lsof \
   mount \
+  needrestart \
   pinentry-curses \
   rxvt-unicode-256color \
   s3cmd \
