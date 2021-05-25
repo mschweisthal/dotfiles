@@ -135,6 +135,7 @@ done
 alias weather='curl wttr.in/"west palm beach"'
 alias usbon='sudo modprobe usbhid'
 alias usboff='sudo modprobe -r hid_logitech_dj usbhid'
+alias afk='usboff && xdg-screensaver lock'
 
 # Git
 alias gitnvm="git reset --soft HEAD~1"
