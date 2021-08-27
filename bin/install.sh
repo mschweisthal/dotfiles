@@ -259,8 +259,13 @@ install_editors() {
 apt_update() {
   echo "[[UPDATE]]"
   apt-get update -y
+}
+
+apt_full_upgrade() {
   echo "[[UPGRADE]]"
   apt-get upgrade -y
+  echo "[[FULL-UPGRADE]]"
+  apt-get full-upgrade -y
 }
 
 apt_clean() {
@@ -277,6 +282,7 @@ usage() {
   echo "  dotfiles  - setup dotfiles"
   echo "  editors   - setup editors"
   echo "  update    - update apt"
+  echo "  upgrade   - upgrade apt"
 }
 
 main() {
@@ -303,6 +309,11 @@ main() {
   elif [[ $cmd == "update" ]]; then
     check_is_sudo
     apt_update
+    apt_clean
+  elif [[ $cmd == "upgrade" ]]; then
+    check_is_sudo
+    apt_update
+    apt_full_upgrade
     apt_clean
   else
     usage

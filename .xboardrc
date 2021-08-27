@@ -101,7 +101,7 @@
 -soundIcsUnfinished ""
 -soundIcsAlarm "penalty.wav"
 -disguisePromotedPieces true
--saveSettingsOnExit true
+-saveSettingsOnExit false
 -icsMenu {Give me;ptell Please give me $input;
 Avoid;ptell Please don't let him get $input;
 Q;$add a Queen $input;
